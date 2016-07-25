@@ -1,0 +1,55 @@
+{{outlet}}
+
+<div class="container">
+  <div class="row day">
+
+    <div class="col-md-3">
+      <div class="page-header">
+        Schedule Form
+      </div>
+
+      <p>
+        <form class="" {{ action 'poster' on='submit'}}>
+          <div class="form-group">
+            <label class="">Weekday</label>
+            {{input type='text' value=info.day class='form-control' placeholder="Monday"}}
+          </div>
+
+          <div class="form-group">
+            <label class="">Open</label>
+            {{input type='text' value=info.open class='form-control' placeholder="7am"}}
+          </div>
+
+          <div class="">
+            <label class="">Close</label>
+            {{input type='text' value=info.close class='form-control' placeholder="1pm"}}
+          </div>
+
+
+          <button type="submit" name="button">Post</button>
+        </form>
+      </p>
+    </div><!-- End col 3 -->
+
+
+    <div class="col-md-9">
+      <div class="page-header">
+        Schedule
+      </div>
+
+      <div class="row pre">
+        <div class="col-md-2">
+          Day: {{info.day}}
+        </div>
+        <div class="col-md-10">
+          Open: {{info.open}}  -  Close: {{info.close}}
+        </div>
+      </div>
+
+      {{#each model as |sched|}}
+        {{sched.day}} {{sched.open}} {{sched.close}}
+      {{/each}}
+    </div>
+
+  </div>
+</div>
