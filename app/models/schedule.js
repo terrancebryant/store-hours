@@ -5,5 +5,8 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   day: attr('string'),
   open: attr('string'),
-  close: attr('string')
+  close: attr('string'),
+  lunchclose: attr('string'),
+  lunchopen: attr('string'),
+  closed: attr('boolean')
 });
