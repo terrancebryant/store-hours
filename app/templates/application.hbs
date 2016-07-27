@@ -1,1 +1,45 @@
-{{outlet}}
+<nav class="navbar navbar-default">
+{{#link-to 'application' class="navbar-brand text-center" }}Flower Shop <small> - available hours</small> {{/link-to}}
+</nav>
+
+{{#if responseMessage}}
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    {{responseMessage}}
+  </div>
+{{/if}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+     {{#link-to 'new' class='btn btn-success'}}New{{/link-to}}
+    </div>
+  </div>
+  <div class="row">
+    {{outlet}}
+    <div class="col-md-7">
+      <div class="page-header">
+        Schedule
+      </div>
+      {{#each model as |sched|}}
+        {{#if sched.closed}}
+            <h3>{{sched.day}}: <small>Closed</small></h3>
+            <small>Closed for the day. Please check schedule for store hours.</small>
+            <span class="pull-right">
+              {{#link-to 'edit' sched.id}}<i class="fa fa-pencil" aria-hidden="true"></i>{{/link-to}} -
+              <a href="#" {{action 'delete' sched }}><i  class="fa fa-trash" aria-hidden="true"></i></a>
+            </span>
+            <hr>
+        {{else}}
+          <h3>{{sched.day}}: <small>{{sched.open}} to {{sched.close}}</small></h3>
+          <small><strong>Closed</strong> for lunch <strong>{{sched.lunchopen}}</strong> to <strong>{{sched.lunchclose}}</strong></small>
+          <span class="pull-right">
+            {{#link-to 'edit' sched.id}}<i class="fa fa-pencil" aria-hidden="true"></i>{{/link-to}} - 
+            <a href="#" {{action 'delete' sched }}><i  class="fa fa-trash" aria-hidden="true"></i></a>
+            </span>
+          <hr>
+        {{/if}}
+      {{/each}}
+    </div> <!-- End 9 Col -->
+  </div><!-- End Row -->
+</div><!-- End Container -->

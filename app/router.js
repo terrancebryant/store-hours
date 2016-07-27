@@ -6,7 +6,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  // this.route('index');
+  this.route('edit', {path: '/weekday/:available_id'});
+  this.route('new');
 });
 
 export default Router;

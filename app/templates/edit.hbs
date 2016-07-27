@@ -1,0 +1,54 @@
+{{outlet}}
+<div class="col-md-3">
+  <div class="page-header">
+    Edit {{model.day}}
+  </div>
+
+
+  <form class="" {{ action 'updateDay' on='submit'}}>
+
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          {{input type="checkbox" class='checker' name='closed'  checked=model.closed}} Closed
+          <!-- {{input type='checkbox' name='active'  checked=info.active}} -->
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="">Weekday</label>
+      {{input type='text' value=model.day class='form-control' placeholder="Monday"}}
+    </div>
+     {{#unless model.closed}}
+        <div class="form-group">
+          <label class="">Store open</label>
+          {{input type='text' value=model.open class='form-control' placeholder="7am"}}
+        </div>
+
+        <div class="form-group">
+          <label class="">Store close</label>
+          {{input type='text' value=model.close class='form-control' placeholder="1pm"}}
+        </div>
+
+        <div class="form-group">
+          <div class="page-header">
+            <h5>Lunch Hours</h5>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="">Strart lunch</label>
+          {{input type='text' value=model.lunchopen class='form-control' placeholder="1pm"}}
+        </div>
+
+        <div class="form-group">
+          <label class="">End lunch</label>
+          {{input type='text' value=model.lunchclose class='form-control' placeholder="1pm"}}
+        </div>
+    {{/unless}}
+
+    <button type="submit" class='btn btn-success btn-lg btn-block' name="button">Save Edit</button>
+  </form>
+
+</div>
