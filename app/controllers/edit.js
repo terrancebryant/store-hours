@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
-
+  info: {},
   actions: {
     updateDay() {
       console.log('save user');
@@ -10,6 +10,11 @@ export default Ember.Controller.extend({
       day.save().then(() => {
         this.transitionToRoute('application');
       });
+    },
+
+    clear() {
+      this.set('info', {});
+      this.transitionToRoute('application');
     }
   }
 });

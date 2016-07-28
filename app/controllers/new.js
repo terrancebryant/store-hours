@@ -20,6 +20,11 @@ export default Ember.Controller.extend({
        this.transitionToRoute('application');
        this.set('info', {});
      });
-    }
+   },
+
+   clear() {
+     this.set('info', {});
+     this.transitionToRoute('application');
+   }
   }
 });

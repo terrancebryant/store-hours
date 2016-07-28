@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-          <label class="">Strart lunch</label>
+          <label class="">Start lunch</label>
           {{input type='text' value=model.lunchopen class='form-control' placeholder="1pm"}}
         </div>
 
@@ -48,7 +48,8 @@
         </div>
     {{/unless}}
 
-    <button type="submit" class='btn btn-success btn-lg btn-block' name="button">Save Edit</button>
+    <button type="submit" class='btn btn-success' name="button">Save Edit</button>
+    <button type="button" {{action 'clear'}} class='btn btn-success' name="button">Cancel</button>
   </form>
 
 </div>
